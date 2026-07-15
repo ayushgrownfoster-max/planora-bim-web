@@ -18,8 +18,21 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-background text-on-background min-h-screen py-16 px-6">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-12">
+    // Outer page container relative to host the page-wide grid
+    <div className="bg-background text-on-background min-h-screen py-16 px-6 relative">
+
+      {/* PAGE-WIDE ENGINEERING GRID PATTERN (Matching 0.05 intensity) */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        style={{
+          backgroundImage: "linear-gradient(to right, #005ab3 1px, transparent 1px), linear-gradient(to bottom, #005ab3 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          zIndex: 0
+        }}
+      />
+
+      {/* Main Content Layout Container */}
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-12 relative z-10">
 
         {/* Page Header Layout with Image Placed on the Right Side */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-outline-variant/30 pb-8">
@@ -57,7 +70,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Contact Form (Left Side) */}
-          <div className="lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-lg p-6 md:p-8">
+          <div className="lg:col-span-7 bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant rounded-lg p-6 md:p-8">
             {submitted ? (
               <div className="py-12 text-center flex flex-col items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 flex items-center justify-center font-bold text-lg">
@@ -157,7 +170,7 @@ export default function ContactPage() {
           <div className="lg:col-span-5 flex flex-col gap-6">
 
             {/* Info Box 1 */}
-            <div className="bg-surface-container border border-outline-variant rounded-lg p-6 flex flex-col gap-4">
+            <div className="bg-surface-container/85 backdrop-blur-sm border border-outline-variant rounded-lg p-6 flex flex-col gap-4">
               <span className="text-[10px] font-mono text-electric-blue uppercase">Global Headquarters</span>
               <div className="flex flex-col gap-1.5 text-xs">
                 <div className="font-bold text-on-surface">Planora BIM Tech LLC</div>
@@ -167,7 +180,7 @@ export default function ContactPage() {
             </div>
 
             {/* Info Box 2 */}
-            <div className="bg-surface-container border border-outline-variant rounded-lg p-6 flex flex-col gap-4 font-mono text-[11px]">
+            <div className="bg-surface-container/85 backdrop-blur-sm border border-outline-variant rounded-lg p-6 flex flex-col gap-4 font-mono text-[11px]">
               <span className="text-[10px] font-mono text-electric-blue uppercase">Coordinate Systems</span>
               <div className="flex justify-between">
                 <span className="text-secondary font-bold">IFC VALIDATION:</span>
