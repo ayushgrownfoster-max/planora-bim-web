@@ -53,8 +53,21 @@ export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState<ServiceItem>(servicesList[0]);
 
   return (
-    <div className="bg-background text-on-background min-h-screen py-16 px-6">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-16">
+    // Outer page wrapper is set to relative to allow perfect positioning of the background lines
+    <div className="bg-background text-on-background min-h-screen py-16 px-6 relative">
+
+      {/* PAGE-WIDE ENGINEERING GRID PATTERN */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        style={{
+          backgroundImage: "linear-gradient(to right, #005ab3 1px, transparent 1px), linear-gradient(to bottom, #005ab3 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          zIndex: 0
+        }}
+      />
+
+      {/* Main Content Layout Container */}
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-16 relative z-10">
 
         {/* Page Header Layout - Enforces identical height alignment on desktop viewports */}
         <div className="flex flex-col md:flex-row items-stretch justify-between gap-8 border-b border-outline-variant/30 pb-8">
@@ -100,8 +113,8 @@ export default function ServicesPage() {
                   key={service.id}
                   onClick={() => setSelectedService(service)}
                   className={`p-6 rounded border cursor-pointer transition-all duration-200 flex flex-col gap-3 ${isSelected
-                    ? "border-electric-blue bg-surface-container-lowest"
-                    : "border-outline-variant bg-surface-container hover:bg-surface-container-high"
+                    ? "border-electric-blue bg-surface-container-lowest/90 backdrop-blur-sm"
+                    : "border-outline-variant bg-surface-container/80 hover:bg-surface-container-high/90 backdrop-blur-sm"
                     }`}
                 >
                   <div className="flex items-center justify-between">
@@ -122,7 +135,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Detailed Viewport Inspector (Right Side) */}
-          <div className="lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-lg p-6 sticky top-24 flex flex-col gap-6">
+          <div className="lg:col-span-5 bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant rounded-lg p-6 sticky top-24 flex flex-col gap-6">
             <div className="border-b border-outline-variant pb-4 flex flex-col gap-1.5">
               <span className="text-[10px] font-mono text-electric-blue uppercase">Service Specs</span>
               <h2 className="text-lg font-bold text-on-surface leading-snug">{selectedService.title}</h2>

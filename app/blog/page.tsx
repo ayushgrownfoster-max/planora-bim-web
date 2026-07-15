@@ -54,9 +54,22 @@ export default function BlogPage() {
   );
 
   return (
-    <div className="bg-background text-on-background min-h-screen py-16 px-6">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-12">
-        
+    // Outer page container relative to host the page-wide grid
+    <div className="bg-background text-on-background min-h-screen py-16 px-6 relative">
+
+      {/* PAGE-WIDE ENGINEERING GRID PATTERN (Matching original 0.05 intensity) */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        style={{
+          backgroundImage: "linear-gradient(to right, #005ab3 1px, transparent 1px), linear-gradient(to bottom, #005ab3 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          zIndex: 0
+        }}
+      />
+
+      {/* Main Content Layout Container */}
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-12 relative z-10">
+
         {/* Page Header */}
         <div className="flex flex-col items-start gap-4">
           <span className="px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded">
@@ -76,11 +89,10 @@ export default function BlogPage() {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded border transition-colors ${
-                filter === cat
+              className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider rounded border transition-colors ${filter === cat
                   ? "bg-primary text-white border-primary"
-                  : "bg-surface-container border-outline hover:bg-surface-container-high text-secondary"
-              }`}
+                  : "bg-surface-container/80 border-outline hover:bg-surface-container-high/95 text-secondary backdrop-blur-sm"
+                }`}
             >
               {cat}
             </button>
@@ -90,9 +102,9 @@ export default function BlogPage() {
         {/* Blog Post Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredPosts.map((post) => (
-            <article 
+            <article
               key={post.id}
-              className="bg-surface-container-lowest border border-outline-variant hover:border-electric-blue transition-colors duration-300 rounded-lg p-6 flex flex-col justify-between gap-6"
+              className="bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant hover:border-electric-blue transition-colors duration-300 rounded-lg p-6 flex flex-col justify-between gap-6"
             >
               <div className="flex flex-col gap-3">
                 <div className="flex items-center justify-between">

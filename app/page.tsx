@@ -97,19 +97,21 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-background text-on-background min-h-screen w-full">
+    // Main wrapper is relative so the absolute grid sits perfectly behind all components
+    <div className="bg-background text-on-background min-h-screen w-full relative">
+
+      {/* PAGE-WIDE ENGINEERING GRID PATTERN */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        style={{
+          backgroundImage: "linear-gradient(to right, #005ab3 1px, transparent 1px), linear-gradient(to bottom, #005ab3 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          zIndex: 0
+        }}
+      />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden border-b border-outline-variant py-24 px-6 w-full">
-        {/* Clean Static Engineering Grid Pattern (Removed layout-breaking custom style tags) */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.06]"
-          style={{
-            backgroundImage: "linear-gradient(to right, #005ab3 1px, transparent 1px), linear-gradient(to bottom, #005ab3 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-            zIndex: 1
-          }}
-        />
 
         {/* Diagonal Soft Glow Radial Accent */}
         <div
@@ -300,7 +302,7 @@ export default function Home() {
       </section>
 
       {/* Grid Values Section */}
-      <section className="py-20 px-6 max-w-[1440px] mx-auto">
+      <section className="py-20 px-6 max-w-[1440px] mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
           <span className="text-[10px] font-mono uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded px-2.5 py-0.5">
             Engine Capabilities
@@ -412,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* Trusted by Industry Leaders Section */}
-      <section className="py-20 px-6 max-w-[1440px] mx-auto border-t border-outline-variant">
+      <section className="py-20 px-6 max-w-[1440px] mx-auto border-t border-outline-variant relative z-10">
         <h2 className="text-2xl font-bold tracking-tight text-on-surface text-center mb-12">
           Trusted by Industry Leaders
         </h2>
@@ -463,7 +465,7 @@ export default function Home() {
       </section>
 
       {/* Dynamic Statistics Banner */}
-      <section className="bg-surface-container py-16 px-6 border-t border-b border-outline-variant">
+      <section className="bg-surface-container py-16 px-6 border-t border-b border-outline-variant relative z-10">
         <div
           className="max-w-[1440px] mx-auto flex flex-wrap gap-8 justify-around text-center"
         >
