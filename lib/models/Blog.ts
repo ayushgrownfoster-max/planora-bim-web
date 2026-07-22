@@ -42,7 +42,7 @@ const BlogSchema = new Schema<IBlog>(
 );
 
 // Auto-generate slug before saving
-BlogSchema.pre("validate", function (next) {
+BlogSchema.pre("validate", function (next: any) {
   if (!this.slug && this.title) {
     this.slug = generateSlug(this.title) + "-" + Date.now();
   }
