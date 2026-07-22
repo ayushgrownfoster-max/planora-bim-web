@@ -11,10 +11,30 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setSubmitError(data.error || "Failed to submit. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -154,12 +174,18 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {submitError && (
+                  <div className="px-3 py-2 text-xs text-red-500 border border-red-300/20 bg-red-50/5 rounded">
+                    {submitError}
+                  </div>
+                )}
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="px-5 py-2.5 text-xs font-mono uppercase tracking-wider bg-primary hover:bg-primary-container text-white rounded transition-colors w-full md:w-auto"
+                    disabled={submitting}
+                    className="px-5 py-2.5 text-xs font-mono uppercase tracking-wider bg-primary hover:bg-primary-container text-white rounded transition-colors w-full md:w-auto disabled:opacity-60"
                   >
-                    Submit Project Details
+                    {submitting ? "Submitting..." : "Submit Project Details"}
                   </button>
                 </div>
               </form>
@@ -169,13 +195,15 @@ export default function ContactPage() {
           {/* Office Details (Right Side) */}
           <div className="lg:col-span-5 flex flex-col gap-6">
 
-            {/* Info Box 1 */}
+            {/* Info Box 1 - Updated Office Details */}
             <div className="bg-surface-container/85 backdrop-blur-sm border border-outline-variant rounded-lg p-6 flex flex-col gap-4">
-              <span className="text-[10px] font-mono text-electric-blue uppercase">Global Headquarters</span>
+              <span className="text-[10px] font-mono text-electric-blue uppercase">Headquarters</span>
               <div className="flex flex-col gap-1.5 text-xs">
-                <div className="font-bold text-on-surface">Planora BIM Tech LLC</div>
-                <div className="text-on-surface-variant">1440 Grid Axis Boulevard, Suite 400</div>
-                <div className="text-on-surface-variant">Architectural District, Tech City</div>
+                <div className="font-bold text-on-surface">Planora BIM Services</div>
+                <div className="text-on-surface-variant">North West Delhi, India</div>
+                <div className="text-on-surface-variant font-mono pt-2">
+                  <span className="text-secondary font-bold">Phone: </span>+91 9294562861
+                </div>
               </div>
             </div>
 

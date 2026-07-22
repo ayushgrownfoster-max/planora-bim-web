@@ -53,7 +53,7 @@ export default function RootLayout({
                   Planora
                 </span>
                 <span className="font-sans font-extrabold text-[11px] tracking-[0.24em] text-on-surface-variant uppercase mt-0.5">
-                  Bimtech
+                  Bim Services
                 </span>
               </div>
             </Link>

@@ -138,17 +138,17 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-on-surface leading-[1.12] font-sans">
-              Precision, <br />
+              Bim Modeling, <br />
               <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
-                BIM & Digital Twin.
+                Coordination & <br />Scan to BIM
               </span>
               <span className="block font-light italic text-on-surface-variant font-sans mt-3 text-3xl sm:text-4xl">
-                Architectural Solutions
+                - Built for Precision
               </span>
             </h1>
 
             <p className="text-base sm:text-lg text-on-surface-variant leading-relaxed max-w-[540px]">
-              Planora is an engineering-grade digital twin showcase platform. We render architectural layouts, detect structural collisions in real time, and snap coordinates directly to a 4px structural baseline grid.
+              Planora BIM Services delivers coordinated, field-accurate BIM models for architecture, structure, and MEP teams — from raw laser scan data to fully coordinated, clash-free deliverables.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
@@ -171,7 +171,7 @@ export default function Home() {
             <div className="flex items-center justify-between border-b border-outline-variant pb-3">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-[10px] font-mono text-secondary uppercase tracking-wider">Planora BIM Engine</span>
+                <span className="text-[10px] font-mono text-secondary uppercase tracking-wider">Planora Execution Engine</span>
               </div>
               <div className="flex items-center gap-3 font-mono text-[10px] text-secondary">
                 <span>SYNC: <strong className="text-emerald-400">{liveSyncRate}%</strong></span>
@@ -318,29 +318,26 @@ export default function Home() {
         {/* Responsive Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
 
-          {/* Card 1 (Spreads horizontally, spans 2 grid columns on desktop) */}
+          {/* Card 1 */}
           <div className="lg:col-span-2 bg-surface-container-lowest p-6 sm:p-8 rounded-lg border border-outline-variant hover:border-primary transition-colors duration-300 flex flex-col justify-between">
             <div className="flex flex-col md:flex-row md:items-start gap-6">
-              {/* Left Side: Icon */}
               <div className="w-12 h-12 rounded bg-primary/10 flex items-center justify-center text-primary border border-primary/20 shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25Z" />
                 </svg>
               </div>
-              {/* Right Side: Text layout spread horizontally */}
               <div className="flex-1">
-                <h3 className="text-xl sm:text-2xl font-bold text-on-surface mb-2">4px Baseline Grid Snapping</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-on-surface mb-2">BIM Modelling</h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
-                  Every structural layout is snapped directly to an exact baseline grid. No alignment errors or floating components during rendering. This alignment mechanism guarantees spatial precision and streamlines translation from blueprint layouts to real-time structural pipelines.
+                  Architectural, structural, and MEP models developed to the LOD your project requires (100 through 500), built for downstream coordination and fabrication use, not just visualization.
                 </p>
               </div>
             </div>
 
-            {/* Bottom Footer Section with Priority Label & Learn More */}
             <div className="border-t border-outline-variant pt-4 mt-6 flex items-center justify-between">
               <span className="text-[10px] font-mono text-primary uppercase tracking-widest">System Engine Priority</span>
               <Link
-                href="/baseline-grid"
+                href="/services"
                 className="text-xs font-semibold text-primary hover:text-blue-500 transition-colors flex items-center gap-1"
               >
                 Learn More
@@ -351,7 +348,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column (Cards 2 & 3 - Spaced vertically to match Card 1) */}
+          {/* Right Column (Cards 2 & 3) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
 
             {/* Card 2 */}
@@ -362,15 +359,15 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286Zm0 13.036h.008v.008H12v-.008Z" />
                   </svg>
                 </div>
-                <h3 className="text-base font-semibold text-on-surface mb-2">Clash Detection Matrix</h3>
+                <h3 className="text-base font-semibold text-on-surface mb-2">BIM Coordination </h3>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
-                  Real-time clash detection engine highlights overlap matrices between structural, mechanical, plumbing and architectural models.
+                  Multi-discipline model federation and clash detection across architecture, structure, and MEP, catching interferences before they reach the field.
                 </p>
               </div>
 
               <div className="flex justify-end">
                 <Link
-                  href="/clash-detection"
+                  href="/services"
                   className="text-xs font-semibold text-primary hover:text-blue-500 transition-colors flex items-center gap-1"
                 >
                   Learn More
@@ -389,15 +386,15 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5A3.375 3.375 0 0 0 10.125 2.25H9.75m0 18.75h-2t-2-2v-9a2 2 0 0 1 2-2h2m0-3h-2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2" />
                   </svg>
                 </div>
-                <h3 className="text-base font-semibold text-on-surface mb-2">Universal IFC & RVT Files</h3>
+                <h3 className="text-base font-semibold text-on-surface mb-2">Scan-to-BIM </h3>
                 <p className="text-xs text-on-surface-variant leading-relaxed">
-                  Native integration imports and processes Revit (.rvt), Industry Foundation Classes (.ifc), and AutoCAD files without metadata loss.
+                  Conversion of terrestrial laser scan point cloud data into structured, intelligent BIM elements that match true as-built field conditions.
                 </p>
               </div>
 
               <div className="flex justify-end">
                 <Link
-                  href="/file-integration"
+                  href="/services"
                   className="text-xs font-semibold text-primary hover:text-blue-500 transition-colors flex items-center gap-1"
                 >
                   Learn More
@@ -470,20 +467,20 @@ export default function Home() {
           className="max-w-[1440px] mx-auto flex flex-wrap gap-8 justify-around text-center"
         >
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">99.9%</div>
-            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Clashes Resolved</div>
+            <div className="text-3xl font-extrabold text-primary font-sans">100+</div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Projects Delivered</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">4.5s</div>
-            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Engine Render Speed</div>
+            <div className="text-3xl font-extrabold text-primary font-sans">LOD 100–500</div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Delivery Standard</div>
+          </div>
+          <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
+            <div className="text-3xl font-extrabold text-primary font-sans">100%</div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">BIM Compliant</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
             <div className="text-3xl font-extrabold text-primary font-sans">15,000+</div>
             <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Active Digital Twins</div>
-          </div>
-          <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">100%</div>
-            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">OpenBIM Standard Compliant</div>
           </div>
         </div>
       </section>
