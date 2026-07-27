@@ -24,17 +24,17 @@ interface BIMPhaseNode {
 }
 
 export default function Home() {
-  // Live simulated values
-  const [liveSyncRate, setLiveSyncRate] = useState<number>(98.4);
-  const [liveLatency, setLiveLatency] = useState<number>(120);
+  // Constant values for sync rate and latency
+  const liveSyncRate = 98.4;
+  const liveLatency = 24;
   const autoCycleTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Business and domain-oriented workflow milestones for Planora BIM
   const [nodes, setNodes] = useState<BIMPhaseNode[]>([
-    { id: "P1", phaseName: "Concept & Modeling", milestone: "LOD 300 Schema", progress: 95, clashesDetected: 142, costEfficiency: 88, x: 15, y: 70 },
-    { id: "P2", phaseName: "Clash Resolution", milestone: "MEP/Structural Audit", progress: 82, clashesDetected: 4, costEfficiency: 94, x: 38, y: 35 },
-    { id: "P3", phaseName: "Cost & 5D Estimation", milestone: "Material Takeoffs QTO", progress: 60, clashesDetected: 0, costEfficiency: 97, x: 62, y: 55 },
-    { id: "P4", phaseName: "Site Twin Delivery", milestone: "As-Built Handover", progress: 40, clashesDetected: 0, costEfficiency: 99, x: 85, y: 20 },
+    { id: "Input", phaseName: "Concept & Modeling", milestone: "LOD 300 Schema", progress: 95, clashesDetected: 142, costEfficiency: 88, x: 15, y: 70 },
+    { id: "Model", phaseName: "Clash Resolution", milestone: "MEP/Structural Audit", progress: 82, clashesDetected: 4, costEfficiency: 94, x: 38, y: 35 },
+    { id: "Coordinate", phaseName: "Cost & 5D Estimation", milestone: "Material Takeoffs QTO", progress: 60, clashesDetected: 0, costEfficiency: 97, x: 62, y: 55 },
+    { id: "Deliver", phaseName: "Site Twin Delivery", milestone: "As-Built Handover", progress: 40, clashesDetected: 0, costEfficiency: 99, x: 85, y: 20 },
   ]);
 
   const [selectedNode, setSelectedNode] = useState<BIMPhaseNode>(nodes[1]); // Default to Clash Resolution
@@ -61,22 +61,9 @@ export default function Home() {
     };
   }, [nodes]);
 
-  // Simulate real-time fluctuating telemetry data 
+  // Simulate real-time fluctuating clash data for the active node
   useEffect(() => {
     const interval = setInterval(() => {
-      // Fluctuate sync rate slightly
-      setLiveSyncRate(prev => {
-        const next = prev + (Math.random() - 0.5) * 0.4;
-        return parseFloat(Math.min(100, Math.max(95, next)).toFixed(2));
-      });
-
-      // Fluctuate processing latency
-      setLiveLatency(prev => {
-        const delta = Math.floor((Math.random() - 0.5) * 15);
-        return Math.min(250, Math.max(80, prev + delta));
-      });
-
-      // Fluctuate progress/clashes dynamically for the active node
       setNodes(prevNodes =>
         prevNodes.map(node => {
           if (node.id === "P2") {
@@ -175,7 +162,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-3 font-mono text-[10px] text-secondary">
                 <span>Model Accuracy: <strong className="text-emerald-400">{liveSyncRate}%</strong></span>
-                <span>AVG. RFI Turnaround: <strong className="text-blue-400">{liveLatency}ms</strong></span>
+                <span>AVG. RFI Turnaround: <strong className="text-blue-400">{liveLatency}hr</strong></span>
               </div>
             </div>
 
@@ -286,7 +273,7 @@ export default function Home() {
                   <span className="text-on-surface font-semibold">{selectedNode.progress}%</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-secondary text-[9px]">SYSTEM UNRESOLVED CLASHES:</span>
+                  <span className="text-secondary text-[9px]">OPEN CLASHES:</span>
                   <span className={`font-semibold ${selectedNode.clashesDetected > 0 ? "text-red-400" : "text-emerald-400"}`}>
                     {selectedNode.clashesDetected} Detected
                   </span>
@@ -329,7 +316,7 @@ export default function Home() {
               <div className="flex-1">
                 <h3 className="text-xl sm:text-2xl font-bold text-on-surface mb-2">BIM Modelling</h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
-                  Architectural, structural, and MEP models developed to the LOD your project requires (100 through 500), built for downstream coordination and fabrication use, not just visualization.
+                  Architectural, structural, and MEP models developed to LOD 500, built for downstream coordination and fabrication use, not just visualization.
                 </p>
               </div>
             </div>
@@ -411,56 +398,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trusted by Industry Leaders Section (COMMENTED OUT)
-      <section className="py-20 px-6 max-w-[1440px] mx-auto border-t border-outline-variant relative z-10">
-        <h2 className="text-2xl font-bold tracking-tight text-on-surface text-center mb-12">
-          Trusted by Industry Leaders
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="bg-surface-container-lowest p-8 rounded-lg border border-outline-variant flex flex-col gap-6 relative">
-            <span className="text-5xl font-serif text-primary/20 absolute top-4 left-6 pointer-events-none">“</span>
-            <p className="text-sm text-on-surface-variant leading-relaxed relative z-10 pt-4">
-              "Planora's attention to detail can record 50,000 sq ft with 100-mm accuracy. Their OpenBIM baseline features prevented weeks of manual server syncs and architectural crash clashes."
-            </p>
-            <div className="flex items-center gap-3 pt-4 border-t border-outline-variant/60">
-              <div className="w-10 h-10 rounded-full bg-surface-container overflow-hidden shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120"
-                  alt="Daniel Chen"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h4 className="text-sm font-semibold text-on-surface">Daniel Chen</h4>
-                <p className="text-xs text-on-surface-variant">Lead Architect, GRID Group</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-surface-container-lowest p-8 rounded-lg border border-outline-variant flex flex-col gap-6 relative">
-            <span className="text-5xl font-serif text-primary/20 absolute top-4 left-6 pointer-events-none">“</span>
-            <p className="text-sm text-on-surface-variant leading-relaxed relative z-10 pt-4">
-              "The digital twins we developed for our global headquarters allowed contractors to tackle operations problems. It's a living tool for sustainability."
-            </p>
-            <div className="flex items-center gap-3 pt-4 border-t border-outline-variant/60">
-              <div className="w-10 h-10 rounded-full bg-surface-container overflow-hidden shrink-0">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120"
-                  alt="Sarah Jowling"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h4 className="text-sm font-semibold text-on-surface">Sarah Jowling</h4>
-                <p className="text-xs text-on-surface-variant">Director of Operations, Build Corp</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      */}
-
       {/* Dynamic Statistics Banner */}
       <section className="bg-surface-container py-16 px-6 border-t border-b border-outline-variant relative z-10">
         <div
@@ -471,7 +408,7 @@ export default function Home() {
             <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Projects Delivered</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">LOD 100–500</div>
+            <div className="text-3xl font-extrabold text-primary font-sans">LOD 500</div>
             <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Delivery Standard</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
@@ -479,8 +416,8 @@ export default function Home() {
             <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Workflow Standard</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">6+</div>
-            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Industry served</div>
+            <div className="text-3xl font-extrabold text-primary font-sans">8</div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Industries Served</div>
           </div>
         </div>
       </section>

@@ -32,15 +32,15 @@ export default function RootLayout({
       className={`${hankenGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-on-background font-sans">
-        {/* Navigation Header - Increased height to h-24 */}
+        {/* Navigation Header - Standard height h-20 */}
         <header className="sticky top-0 z-50 w-full bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant">
-          <div className="max-w-[1440px] mx-auto px-6 h-24 flex items-center justify-between relative">
+          <div className="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between relative">
 
-            {/* Logo Container - Expanded to w-96 h-20 for maximum visibility */}
+            {/* Logo Container - Reduced to w-[280px] h-16 */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-96 h-20 flex-shrink-0">
+              <div className="relative w-44 h-12 sm:w-60 sm:h-14 md:w-[280px] md:h-16 flex-shrink-0 transition-all duration-200">
                 <Image
-                  src="/Planora-BIM-Logo-removebg-preview.png"
+                  src="/Planora-bim-company-logo.png"
                   alt="Planora Logo Mark"
                   fill
                   className="object-contain object-left"
@@ -88,7 +88,7 @@ export default function RootLayout({
 
             {/* Mobile Dropdown Menu Panel Overlay */}
             {isMenuOpen && (
-              <div className="absolute top-24 left-0 right-0 w-full bg-surface-container-lowest border-b border-outline-variant px-6 py-6 flex flex-col gap-4 shadow-xl md:hidden z-50 animate-in fade-in slide-in-from-top-4 duration-200">
+              <div className="absolute top-20 left-0 right-0 w-full bg-surface-container-lowest border-b border-outline-variant px-6 py-6 flex flex-col gap-4 shadow-xl md:hidden z-50 animate-in fade-in slide-in-from-top-4 duration-200">
                 <Link
                   onClick={() => setIsMenuOpen(false)}
                   href="/"
