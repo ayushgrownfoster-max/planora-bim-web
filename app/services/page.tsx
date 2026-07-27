@@ -16,36 +16,57 @@ const servicesList: ServiceItem[] = [
     id: "BIM-01",
     title: "BIM Modeling & Coordination",
     category: "Modeling",
-    description: "Architectural, structural, and mechanical models developed up to LOD 500 standards, integrated into automated spatial interference workflows to eliminate coordination overlaps before fabrication.",
-    features: ["Component parameters mapping", "Geometry optimization", "Revit & IFC native files export", "Cross-trade clearance validation"]
+    description:
+      "Architectural, structural, and mechanical models developed to match your project's coordination needs, integrated into automated spatial interference workflows to catch clashes early and keep every discipline aligned.",
+    features: [
+      "Detailed Revit modeling techniques built for speed — Using custom APIs and scripts to accelerate model creation over manual drafting",
+      "API-driven automation over manual modeling — Automated parameter and geometry validation instead of manual review",
+      "Template standardization — We help you standardize the workflow and requirements before we begin",
+      "Automated cross-trade clash detection — Spatial coordination checks run continuously, not just at milestones"
+    ]
   },
   {
     id: "S2B-02",
     title: "Scan to BIM",
     category: "Coordination",
-    description: "Transformation of terrestrial laser scan raw point cloud data into structured, highly accurate intelligent BIM elements matching exact field as-built coordinate dimensions.",
-    features: ["Point cloud feature extraction", "Millimeter-accuracy alignment", "As-built structural validation", "Deformation analysis overlays"]
+    description:
+      "Conversion of laser scan point cloud data into structured, coordinated BIM elements — modeled to match true field conditions using automated point cloud processing over manual tracing.",
+    features: [
+      "Point Cloud Processing — Clean, register, and align raw scan data for accurate downstream modeling",
+      "Model Creation — Build BIM models directly from processed scan data, matching your project's accuracy requirements",
+      "Quality Check — Validate dimensional accuracy and modeling fidelity against the source scan",
+      "Discipline Coordination — Integrate architectural, structural, and MEP elements into a single coordinated model",
+      "Client Review — Share draft models for feedback and requested revisions",
+      "Model Delivery — Deliver the final coordinated as-built model in required format",
+      "Post-Delivery Support — Ongoing support for model updates, edits, or future use"
+    ]
   },
   {
     id: "VIS-03",
     title: "3D Visualization & Walkthroughs",
     category: "Visualization",
-    description: "Immersive architectural viewports and photorealistic rendered walkthroughs designed to communicate project scaling, sequencing, and multi-tiered systems configurations.",
-    features: ["Cinematic spatial fly-throughs", "High-fidelity engine rendering", "Interactive component overlays", "WebGL & SVG viewport rendering"]
-  },
-  {
-    id: "TWN-04",
-    title: "Digital Twins",
-    category: "Advanced Technology",
-    description: "Web-based interactive twins mapped directly to operational site sensor feeds. View structural assets, live parameter streams, and maintenance databases on a single dashboard canvas.",
-    features: ["Real-time coordinate tracking", "BIM parameter synchronizers", "Live sensor tool integrations", "Asset properties panel"]
+    description:
+      "Immersive architectural walkthroughs and rendered viewports built directly from coordinated BIM models — communicating design intent and sequencing without a separate modeling pass.",
+    features: [
+      "Rendered straight from the coordinated model — No separate rebuild, so visuals always match the latest design and stay accurate as the model updates",
+      "Automated camera & scene scripting — Consistent, repeatable fly-throughs instead of manually animated one-offs",
+      "Interactive component overlays — Clients can explore systems, phasing, and details, not just watch a fixed video",
+      "Faster turnaround — Capable machines and a team focused solely on visualization, so turnaround stays fast"
+    ]
   },
   {
     id: "DOC-05",
     title: "Construction Documentation",
     category: "Engineering",
-    description: "Extraction of precise, error-free field-ready shop drawings, structural calculations, material schedules, and isometric assemblies explicitly aligned with coordinated master files.",
-    features: ["Automated coordinate auditing", "Custom dashboard tools", "Parametric quantity take-offs", "Sheet layout automated scripting"]
+    description:
+      "Extraction of coordinated shop drawings, material schedules, and sheet sets directly from the federated BIM model — kept in sync automatically as the model updates.",
+    features: [
+      "Model Federation — Combine architectural, structural, and MEP models into a single coordinated master file",
+      "Coordinate & Clash Auditing — Run automated checks to catch coordinate mismatches and clashes before documentation begins",
+      "Sheet Setup & Scripting — Apply automated sheet layout scripts to standardize views, scales, and title blocks across the set",
+      "Drawing Generation — Extract shop drawings, plans, sections, and details directly from the coordinated model",
+      "Quantity & Schedule Extraction — Generate parametric quantity take-offs and material schedules linked to live model data"
+    ]
   }
 ];
 
@@ -79,17 +100,17 @@ export default function ServicesPage() {
                 Our Offerings
               </span>
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-on-surface">
-                Our Specialized & <span className="text-electric-blue text-4xl sm:text-[45px]">BIM Services</span>
+                Our Specialized  <span className="text-electric-blue text-4xl sm:text-[45px]">BIM Services</span>
               </h1>
             </div>
 
-            {/* Pushed to the bottom via mt-auto so it aligns flush with the image panel's bottom edge; gap-6 above guarantees a minimum gap from the heading */}
+            {/* Pushed to the bottom via mt-auto so it aligns flush with the image panel's bottom edge */}
             <p className="text-base text-on-surface-variant max-w-2xl leading-relaxed mt-auto">
-              We deliver advanced digital solutions for complex architectural challenges. From high-fidelity modeling to integrated digital twins, our services ensure technical rigor and construction accuracy at every stage.
+              We deliver advanced digital solutions for complex architectural, structural, and MEP challenges. From high-fidelity modeling to Scan-to-BIM conversions, our services ensure technical rigor and construction accuracy at every stage.
             </p>
           </div>
 
-          {/* Header Right Image Box - Unaltered size dimensions preserved */}
+          {/* Header Right Image Box */}
           <div className="w-full md:w-[640px] h-80 sm:h-[352px] rounded-lg border border-outline-variant bg-surface-container overflow-hidden shrink-0 shadow-sm relative group">
             <img
               src="images/planora-bim-services-image.webp"
@@ -153,9 +174,9 @@ export default function ServicesPage() {
                 <span className="text-[10px] font-mono text-secondary uppercase">Capabilities Included</span>
                 <ul className="flex flex-col gap-2">
                   {selectedService.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-xs text-on-surface">
-                      <span className="w-1.5 h-1.5 bg-electric-blue rounded-full" />
-                      {feature}
+                    <li key={idx} className="flex items-start gap-2 text-xs text-on-surface">
+                      <span className="w-1.5 h-1.5 bg-electric-blue rounded-full mt-1.5 shrink-0" />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>

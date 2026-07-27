@@ -305,13 +305,13 @@ export default function Home() {
       <section className="py-20 px-6 max-w-[1440px] mx-auto relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center gap-3">
           <span className="text-[10px] font-mono uppercase tracking-wider text-primary bg-primary/10 border border-primary/20 rounded px-2.5 py-0.5">
-            Engine Capabilities
+            Input Integrety
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-on-surface">
-            Designed for Architectural Structural Rigor
+            Validated Inputs. Flawless Execution.
           </h2>
           <p className="text-sm text-on-surface-variant leading-relaxed">
-            Our technology aligns seamlessly to industry standards, optimizing CAD layouts to accelerate delivery and prevent build site clashes.
+            While standard BIM teams jump straight to modelling, we audit inputs first - ensuring accuracy, compliance, and zero surprises.
           </p>
         </div>
 
@@ -349,6 +349,7 @@ export default function Home() {
           </div>
 
           {/* Right Column (Cards 2 & 3) */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
 
             {/* Card 2 */}
@@ -467,7 +468,7 @@ export default function Home() {
           className="max-w-[1440px] mx-auto flex flex-wrap gap-8 justify-around text-center"
         >
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">100+</div>
+            <div className="text-3xl font-extrabold text-primary font-sans">300+</div>
             <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Projects Delivered</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
@@ -475,12 +476,12 @@ export default function Home() {
             <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Delivery Standard</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">100%</div>
-            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">BIM Compliant</div>
+            <div className="text-3xl font-extrabold text-primary font-sans">ISO 19650</div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Workflow Standard</div>
           </div>
           <div className="flex flex-col gap-1 transition-transform duration-300 hover:scale-105 flex-[1_1_180px]">
-            <div className="text-3xl font-extrabold text-primary font-sans">15,000+</div>
-            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Active Digital Twins</div>
+            <div className="text-3xl font-extrabold text-primary font-sans">6+</div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-secondary">Industry served</div>
           </div>
         </div>
       </section>

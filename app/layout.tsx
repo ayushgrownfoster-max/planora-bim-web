@@ -32,29 +32,20 @@ export default function RootLayout({
       className={`${hankenGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-on-background font-sans">
-        {/* Navigation Header */}
+        {/* Navigation Header - Increased height to h-24 */}
         <header className="sticky top-0 z-50 w-full bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant">
-          <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between relative">
+          <div className="max-w-[1440px] mx-auto px-6 h-24 flex items-center justify-between relative">
 
-            {/* Logo Container */}
+            {/* Logo Container - Expanded to w-96 h-20 for maximum visibility */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-11 h-11 flex-shrink-0">
+              <div className="relative w-96 h-20 flex-shrink-0">
                 <Image
-                  src="/Planora-BIM-Logo.webp"
+                  src="/Planora-BIM-Logo-removebg-preview.png"
                   alt="Planora Logo Mark"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left"
                   priority
                 />
-              </div>
-
-              <div className="flex flex-col justify-center leading-none select-none">
-                <span className="font-sans font-bold text-xl tracking-wide text-electric-blue uppercase">
-                  Planora
-                </span>
-                <span className="font-sans font-extrabold text-[11px] tracking-[0.24em] text-on-surface-variant uppercase mt-0.5">
-                  Bim Services
-                </span>
               </div>
             </Link>
 
@@ -97,7 +88,7 @@ export default function RootLayout({
 
             {/* Mobile Dropdown Menu Panel Overlay */}
             {isMenuOpen && (
-              <div className="absolute top-16 left-0 right-0 w-full bg-surface-container-lowest border-b border-outline-variant px-6 py-6 flex flex-col gap-4 shadow-xl md:hidden z-50 animate-in fade-in slide-in-from-top-4 duration-200">
+              <div className="absolute top-24 left-0 right-0 w-full bg-surface-container-lowest border-b border-outline-variant px-6 py-6 flex flex-col gap-4 shadow-xl md:hidden z-50 animate-in fade-in slide-in-from-top-4 duration-200">
                 <Link
                   onClick={() => setIsMenuOpen(false)}
                   href="/"

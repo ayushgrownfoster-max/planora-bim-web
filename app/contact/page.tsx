@@ -72,7 +72,6 @@ export default function ContactPage() {
 
           {/* Header Right Placeholder Image Box */}
           <div className="w-full md:w-[480px] h-48 rounded-lg border border-outline-variant bg-surface-container overflow-hidden shrink-0 shadow-sm relative group flex items-center justify-center">
-            {/* Standard structural placeholder image element */}
             <img
               src="/images/contact-page-image.webp"
               alt="Initiate Coordination Map View Blueprint Placeholder"
@@ -87,22 +86,25 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form & Contact Details Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          {/* Contact Form (Left Side) */}
-          <div className="lg:col-span-7 bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant rounded-lg p-6 md:p-8">
+          {/* Contact Form Container (Left Side) */}
+          <div className="lg:col-span-7 w-full bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant rounded-lg p-6 md:p-8 min-h-[420px] flex flex-col justify-center">
             {submitted ? (
-              <div className="py-12 text-center flex flex-col items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 flex items-center justify-center font-bold text-lg">
+              <div className="py-12 w-full flex flex-col items-center justify-center text-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 flex items-center justify-center font-bold text-xl shadow-sm">
                   ✓
                 </div>
-                <h3 className="text-lg font-bold text-on-surface">Request Synchronized</h3>
-                <p className="text-xs text-on-surface-variant max-w-sm leading-relaxed">
+                <h3 className="text-xl font-bold text-on-surface">Request Synchronized</h3>
+                <p className="text-sm text-on-surface-variant max-w-md leading-normal text-center">
                   Your project data has been submitted. A coordination specialist will contact you within 24 hours.
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setFormData({ name: "", email: "", org: "", projectType: "BIM Coordination", message: "" }); }}
-                  className="mt-4 px-4 py-2 text-xs font-mono uppercase tracking-wider bg-surface-container border border-outline text-secondary rounded hover:bg-surface-container-high transition-colors"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({ name: "", email: "", org: "", projectType: "BIM Coordination", message: "" });
+                  }}
+                  className="mt-4 px-5 py-2.5 text-xs font-mono uppercase tracking-wider bg-surface-container border border-outline text-secondary rounded hover:bg-surface-container-high transition-colors"
                 >
                   Send another inquiry
                 </button>
@@ -193,9 +195,9 @@ export default function ContactPage() {
           </div>
 
           {/* Office Details (Right Side) */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="lg:col-span-5 flex flex-col gap-6 w-full">
 
-            {/* Info Box 1 - Updated Office Details */}
+            {/* Info Box 1 - Headquarters Details */}
             <div className="bg-surface-container/85 backdrop-blur-sm border border-outline-variant rounded-lg p-6 flex flex-col gap-4">
               <span className="text-[10px] font-mono text-electric-blue uppercase">Headquarters</span>
               <div className="flex flex-col gap-1.5 text-xs">
@@ -207,7 +209,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Info Box 2 */}
+            {/* Info Box 2 - Coordinate Systems */}
             <div className="bg-surface-container/85 backdrop-blur-sm border border-outline-variant rounded-lg p-6 flex flex-col gap-4 font-mono text-[11px]">
               <span className="text-[10px] font-mono text-electric-blue uppercase">Coordinate Systems</span>
               <div className="flex justify-between">
