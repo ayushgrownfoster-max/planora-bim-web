@@ -139,7 +139,7 @@ export default function RootLayout({
                 href="/contact"
                 className="inline-block px-6 py-3 border border-outline text-xs font-mono uppercase tracking-wider text-on-surface bg-surface hover:bg-surface-container-high transition-colors rounded-none w-full sm:w-auto text-center"
               >
-                Schedule a Demo Call
+                Schedule a Consultaion
               </Link>
             </div>
           </div>

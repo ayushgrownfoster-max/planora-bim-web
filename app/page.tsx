@@ -143,7 +143,7 @@ export default function Home() {
                 Coordination & <br />Scan to BIM
               </span>
               <span className="block font-light italic text-on-surface-variant font-sans mt-3 text-3xl sm:text-4xl">
-                - Built for Precision
+                Built for Precision
               </span>
             </h1>
 
@@ -174,8 +174,8 @@ export default function Home() {
                 <span className="text-[10px] font-mono text-secondary uppercase tracking-wider">Planora Execution Engine</span>
               </div>
               <div className="flex items-center gap-3 font-mono text-[10px] text-secondary">
-                <span>SYNC: <strong className="text-emerald-400">{liveSyncRate}%</strong></span>
-                <span>LATENCY: <strong className="text-blue-400">{liveLatency}ms</strong></span>
+                <span>Model Accuracy: <strong className="text-emerald-400">{liveSyncRate}%</strong></span>
+                <span>AVG. RFI Turnaround: <strong className="text-blue-400">{liveLatency}ms</strong></span>
               </div>
             </div>
 
@@ -282,7 +282,7 @@ export default function Home() {
                   <span className="text-on-surface font-semibold">{selectedNode.milestone}</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-secondary text-[9px]">ENGINE PROGRESS:</span>
+                  <span className="text-secondary text-[9px]">PROJECT PROGRESS:</span>
                   <span className="text-on-surface font-semibold">{selectedNode.progress}%</span>
                 </div>
                 <div className="flex flex-col">
@@ -292,7 +292,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-secondary text-[9px]">COST EFFICIENCY RATIO:</span>
+                  <span className="text-secondary text-[9px]">REWORK AVOIDED:</span>
                   <span className="text-emerald-400 font-semibold">{selectedNode.costEfficiency}% Optimal</span>
                 </div>
               </div>
