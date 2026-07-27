@@ -411,14 +411,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trusted by Industry Leaders Section */}
+      {/* Trusted by Industry Leaders Section (COMMENTED OUT)
       <section className="py-20 px-6 max-w-[1440px] mx-auto border-t border-outline-variant relative z-10">
         <h2 className="text-2xl font-bold tracking-tight text-on-surface text-center mb-12">
           Trusted by Industry Leaders
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Testimonial 1 */}
           <div className="bg-surface-container-lowest p-8 rounded-lg border border-outline-variant flex flex-col gap-6 relative">
             <span className="text-5xl font-serif text-primary/20 absolute top-4 left-6 pointer-events-none">“</span>
             <p className="text-sm text-on-surface-variant leading-relaxed relative z-10 pt-4">
@@ -439,7 +438,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Testimonial 2 */}
           <div className="bg-surface-container-lowest p-8 rounded-lg border border-outline-variant flex flex-col gap-6 relative">
             <span className="text-5xl font-serif text-primary/20 absolute top-4 left-6 pointer-events-none">“</span>
             <p className="text-sm text-on-surface-variant leading-relaxed relative z-10 pt-4">
@@ -461,6 +459,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Dynamic Statistics Banner */}
       <section className="bg-surface-container py-16 px-6 border-t border-b border-outline-variant relative z-10">
